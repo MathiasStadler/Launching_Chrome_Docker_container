@@ -1,0 +1,9 @@
+# FROM HERE
+#  https://thespecguy.medium.com/launching-google-chrome-on-docker-container-a7dc2ba2d5
+
+FROM centos:latest
+LABEL maintainer "Satyam Singh"
+RUN dnf update -y 
+COPY google-chrome.repo /etc/yum.repos.d/
+RUN yum install google-chrome-stable -y
+ENTRYPOINT ["google-chrome","--no-sandbox"]
